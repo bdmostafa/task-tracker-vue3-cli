@@ -1,8 +1,8 @@
 <template>
-  <div class="task">
+  <div :class="[task.reminder ? 'reminder' : '', 'task']">
     <h4>
-        {{ task.title }}
-<i class="fas fa-trash"></i>
+      {{ task.title }}
+      <i class="fas fa-trash"></i>
     </h4>
     <p>{{ task.day }}</p>
   </div>
