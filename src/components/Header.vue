@@ -1,7 +1,11 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <Button text="Add Task" color="green" />
+    <Button
+      @btn-click="$emit('toggle-add-task-form')"
+      :text="isAddTaskForm ? 'Close' : 'Add Task'"
+      :color="isAddTaskForm ? 'orange' : 'blue'"
+    />
   </header>
 </template>
 
@@ -11,6 +15,10 @@ export default {
   name: "Header",
   props: {
     title: String,
+    isAddTaskForm: {
+      type: Boolean,
+      default: false,
+    },
   },
   components: {
     Button,
