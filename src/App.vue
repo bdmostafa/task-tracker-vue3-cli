@@ -1,42 +1,48 @@
 <template>
-<div class="container">
+  <div class="container">
     <Header title="Task Tracker" />
-    <Tasks :tasks="tasks"/>
-</div>
-
+    <Tasks @remove-task="removeTask" :tasks="tasks" />
+  </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Tasks from './components/Tasks.vue';
+import Tasks from "./components/Tasks.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Tasks
+    Tasks,
   },
-  data () {
+  data() {
     return {
-      tasks: []
-    }
+      tasks: [],
+    };
+  },
+  methods: {
+    removeTask(id) {
+      if (confirm("Are yiu sure to delete this task?")) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
+    },
   },
   created() {
     this.tasks = [
       {
         id: 1,
-        title: 'Todo 1',
-        day: '1st September at 10.00am',
-        reminder: true
+        title: "Todo 1",
+        day: "1st September at 10.00am",
+        reminder: true,
       },
       {
         id: 2,
-        title: 'Todo 2',
-        day: '5th September at 5.30pm',
-        reminder: false
-      }
-    ]
-  }
+        title: "Todo 2",
+        day: "5th September at 5.30pm",
+        reminder: false,
+      },
+    ];
+  },
 };
 </script>
 

@@ -2,7 +2,7 @@
   <div :class="[task.reminder ? 'reminder' : '', 'task']">
     <h4>
       {{ task.title }}
-      <i class="fas fa-trash"></i>
+      <i @click="removeTask(task.id)" class="fas fa-trash"> </i>
     </h4>
     <p>{{ task.day }}</p>
   </div>
@@ -14,6 +14,11 @@ export default {
   props: {
     task: Object,
   },
+  methods: {
+      removeTask(id) {
+          this.$emit('remove-task', id)
+      }
+  }
 };
 </script>
 
