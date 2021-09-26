@@ -5,6 +5,7 @@
       @btn-click="$emit('toggle-add-task-form')"
       :text="isAddTaskForm ? 'Close' : 'Add Task'"
       :color="isAddTaskForm ? 'orange' : 'blue'"
+      v-show="homePage"
     />
   </header>
 </template>
