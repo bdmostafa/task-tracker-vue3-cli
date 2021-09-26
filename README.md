@@ -17,3 +17,5 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+This project is inspired by [Traversy Media] (https://github.com/bradtraversy)
